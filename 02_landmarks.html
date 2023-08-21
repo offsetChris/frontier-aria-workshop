@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Landmarks - WAI-ARIA Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel='stylesheet' href='style.css' />
+  </head>
+  <body>
+    <main>
+      <h1>Landmarks - WAI-ARIA Workshop</h1>
+      <section aria-labelledby="descSec1" class="height-sm">
+        <h2 id="descSec1">Activity 1</h2>
+        <label for="act1">Convert this generic container to a landmark using an ARIA role that has the same semantic meaning as a header.</label>
+        <div class="stage">
+<textarea id="act1" class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div>
+  <img src="companyLogo.png" alt="Company"/>
+  <h1>The Company Website</h1>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;div role="banner">
+  &lt;img src="companyLogo.png" alt="Company"/>
+  &lt;h1>The Company Website&lt;/h1>
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec2" class="height-sm">
+        <h2 id="descSec2">Activity 2</h2>
+        <label for="act2">Convert the same generic container to an HTML landmark with the same semantic meaning.</label>
+        <div class="stage">
+<textarea id="act2" class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div>
+  <img src="companyLogo.png" alt="Company"/>
+  <h1>The Company Website</h1>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;header>
+  &lt;img src="companyLogo.png" alt="Company"/>
+  &lt;h1>The Company Website&lt;/h1>
+&lt;/header>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec3" class="height-xl">
+        <h2 id="descSec3">Activity 3</h2>
+        <label for="act3">Here's a document that uses no landmarks! Add the relevant landmarks with ARIA or HTML to make a more meaningful experience.</label>
+        <div class="stage">
+<textarea id="act3" class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div>
+  <img src="companyLogo.png" alt="Company"/>
+  <h1>The Company Website</h1>
+</div>
+
+<div>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/about">About Us</a></li>
+    <li><a href="/shop">Shop</a></li>
+  </ul>
+</div>
+
+<div>
+  <strong>The main content of this site and why your users come here!</strong>
+</div>
+
+<div>
+  <p>Copyright &copy; 2022 The Company Website</p>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">ARIA: 
+&lt;div role="banner">
+  &lt;img src="companyLogo.png" alt="Company"/>
+  &lt;h1>The Company Website&lt;/h1>
+&lt;/div>
+
+&lt;div role="navigation">
+  &lt;ul>
+    &lt;li>&lt;a href="/home">Home&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="/about">About Us&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="/shop">Shop&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/div>
+
+&lt;div role="main">
+  &lt;strong>The main content of this site and why your users come here!&lt;/strong>
+&lt;/div>
+
+&lt;div role="contentinfo">
+  &lt;p>Copyright &copy; 2022 The Company Website&lt;/p>
+&lt;/div>
+
+HTML:
+&lt;header>
+  &lt;img src="companyLogo.png" alt="Company"/>
+  &lt;h1>The Company Website&lt;/h1>
+&lt;/header>
+
+&lt;nav>
+  &lt;ul>
+    &lt;li>&lt;a href="/home">Home&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="/about">About Us&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="/shop">Shop&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/nav>
+
+&lt;main>
+  &lt;strong>The main content of this site and why your users come here!&lt;/strong>
+&lt;/main>
+
+&lt;footer>
+  &lt;p>Copyright &copy; 2022 The Company Website&lt;/p>
+&lt;/footer>
+</code></pre>          
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>Author: Christina Adams</p>
+      <ul>
+        <li><a href="https://github.com/offsetChris">@offsetChris on GitHub</a></li>
+        <li><a href="mailto:cada@siteimprove.com">cada@siteimprove.com</a></li>
+        <li><a href="https://www.linkedin.com/in/christina-adams-developer/">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script src="prism/prism.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>

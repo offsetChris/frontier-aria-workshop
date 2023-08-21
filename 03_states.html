@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>States and Properties - WAI-ARIA Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel='stylesheet' href='style.css' />
+    
+  </head>
+  <body>
+    <main>
+      <h1>States and Properties - WAI-ARIA Workshop</h1>
+      <section aria-labelledby="descSec1" class="height-sm">
+        <h2 id="descSec1">Activity 1</h2>
+        <label for="act1">Add an ARIA state to communicate that this mute button is <em>pressed</em>.</label>
+        <div class="stage">
+<textarea id="act1" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<button>Mute</button>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;button aria-pressed="true">Mute&lt;/button>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec2" class="height-sm">
+        <h2 id="descSec2">Activity 2</h2>
+        <label for="act2">Add an aria state to communicate that this accordion is <strong>NOT</strong> currently expanded.</label>
+        <div class="stage">
+<textarea id="act2" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<button class="accordion_btn" aria-controls="panel1">Accordion Button!</button>
+<div id="panel1">Accordion expandable content</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;button class="accordion_btn" aria-controls="panel1" aria-expanded="false">Accordion Button!&lt;/button>
+&lt;div id="panel1">Accordion expandable content&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec3" class="height-sm">
+        <h2 id="descSec3">Activity 3</h2>
+        <label for="act3">Add an aria property that communicates that a dialog popup will appear when this button is activated.</label>
+        <div class="stage">
+<textarea id="act3" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<button>Open the dialog window</button>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;button aria-haspopup="dialog">Open the dialog window&lt;/button>
+</code></pre>          
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>Author: Christina Adams</p>
+      <ul>
+        <li><a href="https://github.com/offsetChris">@offsetChris on GitHub</a></li>
+        <li><a href="mailto:cada@siteimprove.com">cada@siteimprove.com</a></li>
+        <li><a href="https://www.linkedin.com/in/christina-adams-developer/">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script src="prism/prism.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>

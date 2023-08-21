@@ -1,0 +1,137 @@
+*{
+	box-sizing:border-box;
+}
+html, body{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+body{
+	font: 1rem/1.5 helvetica, arial, sans-serif;
+	background:#212121;
+	color: #fafafa;
+	position:relative;
+	display:block;
+}
+main{
+	max-width: 80rem;
+	margin: 0 auto;
+	padding: 20px;
+}
+textarea{
+	font-size: 1rem;
+	line-height: 1.5;
+}
+a, a:hover, a:focus{
+	color: powderblue;
+}
+section{
+	margin-bottom: 5rem;
+}
+nav ul{
+	list-style: none;
+}
+nav ul a{
+	display: inline-block;
+	margin-bottom: 1em;
+}
+code[class*=language-],pre[class*=language-]{
+	font-family: monospace;
+}
+summary{
+	cursor: pointer;
+}
+footer{
+	padding: 20px;
+	border-top: 1px solid #888;
+}
+footer ul, .page-nav ul{
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+footer li, .page-nav li{
+	padding: 0 1em 0 0;
+}
+.page-nav{
+	max-width: 80rem;
+	margin: 0 auto;
+	padding: 20px;
+}
+.page-nav ul{
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.page-nav .button-primary{
+	padding: .5em;
+}
+.page-nav .button-primary[aria-current]{
+	background: transparent;
+	color: powderblue;
+}
+.stage{
+	display: grid;
+}
+.button-primary{
+	background: powderblue;
+	border: 1px solid white;
+	padding: 1rem;
+	border-radius: 5px;
+	color: #2a2a2a;
+	font-weight: bold;
+	text-decoration: none;
+}
+.button-primary:hover, .button-primary:focus{
+	background: white;
+	color: #2a2a2a;
+}
+.button-primary.next{
+	margin: 1rem auto;
+	width: 80vw;
+	max-width: 700px;
+	text-align: center;
+	display: block;
+}
+.introduction{
+	max-width: 50em;
+}
+
+.height-sm .editing, .height-sm .highlighting{
+	height: 8rem;
+}
+.height-md .editing, .height-md .highlighting{
+	height: 12rem;
+}
+.height-lg .editing, .height-lg .highlighting{
+	height: 20rem;
+}
+.height-xl .editing, .height-xl .highlighting{
+	height: 35rem;
+}
+
+/*Editor*/
+.editing,.highlighting{
+	margin: 0.5em 0;
+	padding: 1rem;
+	border: 0;
+	max-width: 95vw;
+	grid-area: 1 / -1;
+	overflow: auto;
+	white-space: nowrap;
+}
+.editing, .highlighting, .highlighting *{
+	font-family:  monospace;
+}
+.editing{
+	z-index: 1;
+	color: transparent;
+	background: transparent;
+	caret-color: white;
+	resize: none;
+}
+.highlighting{
+	z-index: 0;
+	border: 2px solid #aaa;
+}

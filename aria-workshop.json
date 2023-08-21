@@ -1,0 +1,87 @@
+{
+	"codeTests": {
+		"structural": [
+			{
+				"title": "Communicate the SVG as an image",
+				"directions": "Add the correct role to give the SVG the same semantics as an image HTML element.",
+				"htmlStart": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><title>Duplicate this document</title><path d=\"M14.016 12h5.484l-5.484-5.484v5.484zM15 5.016l6 6v9.984q0 0.797-0.609 1.406t-1.406 0.609h-11.016q-0.797 0-1.383-0.609t-0.586-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h6.984zM15.984 0.984v2.016h-12v14.016h-1.969v-14.016q0-0.797 0.586-1.406t1.383-0.609h12z\"></path></svg>",
+				"htmlAnswer": "<svg role=\"img\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><title>Duplicate this document</title><path d=\"M14.016 12h5.484l-5.484-5.484v5.484zM15 5.016l6 6v9.984q0 0.797-0.609 1.406t-1.406 0.609h-11.016q-0.797 0-1.383-0.609t-0.586-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h6.984zM15.984 0.984v2.016h-12v14.016h-1.969v-14.016q0-0.797 0.586-1.406t1.383-0.609h12z\"></path></svg>",
+				"ex": "Adding a role of `img` to an SVG element allows for the machines to communicate that this is visual information and allows for a more consice description of the element without reading the SVG code."
+			},{
+				"title": "Convert generic text to a Heading",
+				"directions": "Use the appropriate ARIA role to convert this span to a heading.",
+				"htmlStart": "<span>Topic sentance for the following text</span>",
+				"htmlAnswer": "<span role=\"heading\">Topic sentance for the following text</span>",
+				"caution": "We have more work to do here! We haven't told the machines what level of heading this is. We'll cover that a bit later.",
+				"ex": "Adding a role of `heading` should only be done in desperate situations when you can not modify the underlying markup. Use standard HTML headings `h1` `h2` etc."
+			},{
+				"title": "Remove semantic meaning from an HTML element",
+				"directions": "Add a role to the table element that removes the semantic meaning.",
+				"htmlStart": "<table>It's 1999 and someone's used a table for layout purposes. Let's at least make it not function like a table since there is no tabular data.</table>",
+				"htmlAnswer": "<table role=\"presentation\">It's 1999 and someone's used a table for layout purposes. Let's at least make it not function like a table since there is no tabular data.</table>",
+				"ex": "Role of `presentation` or `none` removes any native HTML semantics from the elements markup. The element is now a generic container that will not have any meaning or functionality communicated to assistive tech."
+			}
+		],
+		"relationship": [
+			{
+				"title": "Give an accessible name to this empty button.",
+				"directions": "Use an `aria-label` to give this button the accessible name of `Submit`.",
+				"htmlStart": "<button></button>",
+				"htmlAnswer": "<button aria-label=\"Submit\"></button>",
+				"caution": "Be careful with `aria-label`. It is a great tool but remember that it overrides any native HTML available in the element.",
+				"ex": "In this example the `button` has no native HTML text to desribe its functionality to the end user. For a user referencing the visual UI there might be a symbol or graphic. Adding an `aria-label` to this element gives it a descriptive accessible name for users not referencing the visuals on screen."
+			},{
+				"title": "Give the section a unique accessible name by referencing another existing HTML element.",
+				"directions": "Use `aria-labelledby` to reference an existing element. The element's text will also be used",
+				"htmlStart": "",
+				"htmlAnswer": "",
+				"ex": ""
+			}
+		],
+		"widgets": [
+			{
+				"title": "Create a button out of a generic element",
+				"directions": "Apply the correct ARIA role to make this div a button, at least semantically anyway.",
+				"htmlStart": "<div>I want to be a button!</div>",
+				"htmlAnswer": "<div role=\"button\">I want to be a button!</div>",
+				"caution": "There is MUCH more work to do here! We'll discuss more later.",
+				"ex":"Converting a generic container into a meaningful role like `button` should only be done in the most rare occurrences when implementing a standard HTML button is not possible."
+			},{
+				"title": "Turn a gernic element into a checkbox",
+				"description": "Add a role to this span changing its meaning to a checkbox. Bonus points for knowing the ARIA state to add too.",
+				"htmlStart": "<span>A non-standard checkbox please</span>",
+				"htmlAnswer": "<span role=\"checkbox\" aria-checked=\"true\">A non-standard checkbox please</span>",
+				"caution": "There is a lot more work to be done here! We haven't told the machines if it is checked or allowed keyboard access!",
+				"ex": "Creating an checkbox using ARIA should only be done if there are no other alternatives. There are a lot more states to communicate, keyboard access, and likely form data issues that arise from using ARIA here. Standard HTML is prefered."
+			}
+		],
+		"landmarks": [],
+		"live": [],
+		"advanced": []
+	},
+	"quiz": [
+		{
+			"question": "What is the name of this button?",
+			"html": "<button aria-label=\"Cancel\" title=\"Something Else\">Submit</button>",
+			"options": ["Cancel", "Something Else", "Submit"],
+			"answer": "Cancel",
+			"ex": "When an `aria-label` value is available on an element it overrides all other native HTML and HTML attributes that could be used to deliver the accessible name of the element."
+		},{
+			"question": "Someone really over did it with ARIA here. What is the section's accessible name?",
+			"html": "<h2 id=\"sectionHeading\" aria-label=\"Text is also good\">Headings are wonderful</h2><section aria-labelledby=\"sectionHeading\"><h3>Content is great</h3></section>",
+			"options": ["Headings are wonderful", "Text is also good", "Content is great"],
+			"answer": "Text is also good",
+			"ex":"The `aria-labelledby` on the section pulls in the referenced element's accessible name. In this case the name of the heading is modified by an `aria-label`, so the value of the `aria-label` on the heading becomes the accessible name of the section through the `aria-labelledby` connection."
+		},{
+			"question": "What is the label text for this very confusing input?",
+			"html": "<label for=\"inputOne\" aria-label=\"Phone\">Full Name</label><input title=\"Address\" aria-label=\"Email\" id=\"inputOne\">",
+			"options": ["Full Name", "Phone", "Address", "Email"],
+			"answer": "Email",
+			"ex": "This is an example of someone trying to hard, and not looking for the easy answer when getting their form labels in order for accessibility. That being said, the `aria-label` on the form element directly will win out in the battle for naming rights here. The best way to label your form fields is using standard, boring HTML labels `<label>Label Text<input></label>`"
+		}
+	],
+	"author": "Christina Adams",
+	"version": "1.0.0",
+	"license": "MIT"
+
+}

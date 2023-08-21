@@ -1,0 +1,32 @@
+<h1>States</h1>
+
+<!-- 
+  Add an ARIA state to communicate that this mute button is "pressed"
+-->
+
+<button>Mute</button>
+
+CORRECT:
+<button aria-pressed="true">Mute</button>
+
+<!--
+  Add an aria state to communicate that this accordion is NOT currently expanded. 
+-->
+
+<button class="accordion_btn" aria-controls="panel1">Accordion Button!</button>
+<div id="panel1">Accordion expandable content</div>
+
+
+CORRECT:
+<button class="accordion_btn" aria-controls="panel1" aria-expanded="false">Accordion Button!</button>
+<div id="panel1">Accordion expandable content</div>
+
+<!-- 
+  Add an aria property that communicates that a dialog popup will appear when this button is activated.
+ -->
+
+<button>Open the dialog window</button>
+
+CORRECT:
+<button aria-haspopup="dialog">Open the dialog window</button>
+

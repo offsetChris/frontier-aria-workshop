@@ -1,0 +1,60 @@
+<h1>Live Regions</h1>
+<!-- 
+Convert the notification element to an ARIA live region that meets the following criteria:
+
+	1. Uses an aria-live property to create the live region.
+	2. The live region announcements will notify the user immediately
+	3. The live region announces everything inside the region when an update to the content occurs
+-->
+
+<div class="notifications">
+	<p>This is a notification message for the user.</p>
+</div>
+
+
+
+<!-- 
+	Convert this list to a live region using aria properties that:
+	1. Notify users of a change during the next pause in user activity
+	2. Notify users only of additions to the list.
+ -->
+
+ <ul>
+ 	<li>First item</li>
+ 	<li>Second item</li>
+ 	<li>Third item</li>
+ 	<li>Fourth item</li>
+ </ul>
+
+
+<!-- 
+	Using an ARIA role, convert this container to a live region that:
+	1. Notifies users of changes immediately
+	2. Announces everything in the live region with every update.
+ -->
+
+<div class="notifications">
+	<p>This is a notification message for the user using a role on my container.</p>
+</div>
+
+
+
+<!-- 
+	Using an aria-live property make an announcement about the search results when they are updated with JavaScript. The live region should announce during a pause in user activity, and announce everything in the region. Choose where to put the live region carefully. 
+ -->
+
+<h2>Search results</h2>
+<label>Search <input type="search" />
+
+<p>Results: 5</p>
+
+<ul>
+	<li>Result 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	<li>Result 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	<li>Result 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	<li>Result 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	<li>Result 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+</ul>
+
+
+

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Live Regions - WAI-ARIA Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel='stylesheet' href='style.css' />
+    
+  </head>
+  <body>
+    <main>
+      <h1>Live Regions - WAI-ARIA Workshop</h1>
+      <section aria-labelledby="descSec1" class="height-sm">
+        <h2 id="descSec1">Activity 1</h2>
+        <label for="act1">Convert the notification element to an ARIA live region that meets the following criteria:</label>
+        <ol>
+          <li>Uses an aria-live property to create the live region.</li>
+          <li>The live region announcements will notify the user immediately.</li>
+          <li>The live region announces everything inside the region when an update to the content occurs.</li>
+        </ol>
+        <div class="stage">
+<textarea id="act1" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div class="notifications">
+  <p>This is a notification message for the user.</p>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;div class="notifications" aria-live="assertive" aria-atomic="true">
+  &lt;p>This is a notification message for the user.&lt;/p>
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec2" class="height-md">
+        <h2 id="descSec2">Activity 2</h2>
+        <label for="act2">Convert this list to a live region using aria properties that:</label>
+        <ol>
+          <li>Notify users of a change during the next pause in user activity.</li>
+          <li>Notify users only of additions to the list.</li>
+        </ol>
+        <div class="stage">
+<textarea id="act2" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+ </ul>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;ul aria-live="polite" aria-relevant="additions">
+  &lt;li>First item&lt;/li>
+  &lt;li>Second item&lt;/li>
+  &lt;li>Third item&lt;/li>
+  &lt;li>Fourth item&lt;/li>
+ &lt;/ul>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec3" class="height-sm">
+        <h2 id="descSec3">Activity 3</h2>
+        <label for="act3">Using an ARIA role, convert this container to a live region that:</label>
+        <ol>
+          <li>Notifies users of changes immediately.</li>
+          <li>Announces everything in the live region with every update.</li>
+        </ol>
+        <div class="stage">
+<textarea id="act3" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div class="notifications">
+  <p>This is a notification message for the user using a role on my container.</p>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;div class="notifications" role="alert">
+  &lt;p>This is a notification message for the user using a role on my container.&lt;/p>
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec4" class="height-lg">
+        <h2 id="descSec4">Activity 4</h2>
+        <label for="act4">Using an aria-live property make an announcement about the search results when they are updated with JavaScript. The live region should announce during a pause in user activity, and announce everything in the region. Choose where to put the live region carefully.</label>
+        <div class="stage">
+<textarea id="act4" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<h2>Search results</h2>
+<label>Search <input type="search" />
+
+<p>Results: 5</p>
+
+<ul>
+  <li>Result 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+  <li>Result 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+  <li>Result 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+  <li>Result 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+  <li>Result 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+</ul>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;h2>Search results&lt;/h2>
+&lt;label>Search &lt;input type="search" />
+
+&lt;p aria-live="polite" aria-atomic="true">Results: 5&lt;/p>
+
+&lt;ul>
+  &lt;li>Result 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/li>
+  &lt;li>Result 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/li>
+  &lt;li>Result 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/li>
+  &lt;li>Result 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/li>
+  &lt;li>Result 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/li>
+&lt;/ul>
+</code></pre>          
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>Author: Christina Adams</p>
+      <ul>
+        <li><a href="https://github.com/offsetChris">@offsetChris on GitHub</a></li>
+        <li><a href="mailto:cada@siteimprove.com">cada@siteimprove.com</a></li>
+        <li><a href="https://www.linkedin.com/in/christina-adams-developer/">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script src="prism/prism.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>

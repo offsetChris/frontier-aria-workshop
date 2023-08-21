@@ -1,0 +1,76 @@
+<h1>Composite Widgets</h1>
+
+<!-- 
+Add the required roles to complete this tablist composite widget. 
+	1. Include the required child roles
+	2. Label the tab list using aria-labelledby
+	3. Indicate that the first tab is "selected" using aria-selected
+	4. Indicate which tabpanel each tab controls using aria-controlls
+	5. Supply an accessible name for each tabpanel by referencing the button that controls it using aria-labelledby
+	6. Reference the ARIA Authoring Practices Guide if you get stuck: https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html
+ -->
+
+<h2 id="tablistLabel">A grouped of tabs</h2>
+<div>
+	<button id="tab1">Tab 1</button>
+	<button id="tab2">Tab 2</button>
+	<button id="tab3">Tab 3</button>
+</div>
+<div id="panel1">
+	<p>Tab 1 Content that is shown when tab 1 is activated.</p>
+</div>
+<div id="panel2">
+	<p>Tab 2 Content that is shown when tab 2 is activated.</p>
+</div>
+<div id="panel3">
+	<p>Tab 3 Content that is shown when tab 3 is activated.</p>
+</div>
+
+
+CORRECT: 
+<h2 id="tablistLabel">A groupd of tabs</h2>
+<div role="tablist" aria-labelledby="tablistLabel">
+	<button id="tab1" role="tab" aria-controls="panel1" aria-selected="true">Tab 1</button>
+	<button id="tab2" role="tab" aria-controls="panel2">Tab 2</button>
+	<button id="tab3" role="tab" aria-controls="panel3">Tab 3</button>
+</div>
+<div id="panel1" role="tabpanel" aria-labelledby="tab1">
+	<p>Tab 1 Content that is shown when tab 1 is activated.</p>
+</div>
+<div id="panel2" role="tabpanel" aria-labelledby="tab2">
+	<p>Tab 2 Content that is shown when tab 2 is activated.</p>
+</div>
+<div id="panel3" role="tabpanel" aria-labelledby="tab3">
+	<p>Tab 3 Content that is shown when tab 3 is activated.</p>
+</div>
+
+
+
+ <!-- 
+	This is a custom ARIA combobox/listbox pattern that is missing its roles.
+	1. Add the appropriate roles of combobox and listbox to the correct elements
+	2. Add the correct role to the options in the listbox
+	3. Indicate that the combobox has a popup using aria-haspopup
+	4. Use aria-expanded on the combobox to communicate that the list box is not visible
+	5. Use aria-controls on the combobox to reference the listbox
+	6. Associate the same label for the combobox and listbox using aria-labelledby
+	7. Indicate Option 1 is selected using aria-selected on the option and aria-activedescendant on the combobox
+	8. Reference the ARIA Authoring Practices Guide if you get stuck: https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html 
+  -->
+<span id="comboLabel">Favorite color</span>
+<div>Choose an option: </div>
+<div id="optionList">
+	<span id="op1">Option 1</span>
+	<span id="op2">Option 2</span>
+	<span id="op3">Option 3</span>
+</div>
+
+
+CORRECT:
+<span id="comboLabel">Favorite color</span>
+<div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="optionList" aria-labelledby="comboLabel" aria-activedescendant="op1">Choose an option: </div>
+<div id="optionList" role="listbox" aria-labelledby="comboLabel">
+	<span id="op1" role="option" aria-selected="true">Option 1</span>
+	<span id="op2" role="option">Option 2</span>
+	<span id="op3" role="option">Option 3</span>
+</div>

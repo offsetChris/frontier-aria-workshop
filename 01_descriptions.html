@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Relationships and Descriptions - WAI-ARIA Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel='stylesheet' href='style.css' />
+    
+  </head>
+  <body>
+    <main>
+      <h1>Relationships and Descriptions - WAI-ARIA Workshop</h1>
+      <section aria-labelledby="descSec1" class="height-sm">
+        <h2 id="descSec1">Activity 1</h2>
+        <label for="act1">Add an accessible name of "export document" to this icon button using an aria-label.</label>
+        <div class="stage">
+<textarea id="act1" class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<button class="icon_export"></button>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;button class="icon_export" aria-label="export document"&gt;&lt;/button&gt;
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec2" class="height-sm">
+        <h2 id="descSec2">Activity 2</h2>
+        <label for="act2">Use aria-labeledby to add the heading as an accessible name for the link.</label>
+        <div class="stage">
+<textarea id="act2"class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<h3 id="articleHeading1">An article about great things</h3>
+<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking</p>
+<a href="/article1"></a>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;h3 id="articleHeading1">An article about great things&lt;/h3>
+&lt;p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking&lt;/p>
+&lt;a href="/article1" aria-labelledby="articleHeading1">&lt;/a>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec3" class="height-md">
+        <h2 id="descSec3">Activity 3</h2>
+        <label for="act3">Establish a programmatic connection between the tab and the tabpanel using aria-controls </label>
+        <div class="stage">
+<textarea id="act3" class="editing" spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<div role="tablist">
+  <button role="tab">Tab one</button>
+</div>
+<div id="panel1" role="tabpanel">
+  Tab one content panel
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;div role="tablist">
+  &lt;button role="tab" aria-controls="panel1">Tab one&lt;/button>
+&lt;/div>
+&lt;div id="panel1" role="tabpanel">
+  Tab one content panel
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>Author: Christina Adams</p>
+      <ul>
+        <li><a href="https://github.com/offsetChris">@offsetChris on GitHub</a></li>
+        <li><a href="mailto:cada@siteimprove.com">cada@siteimprove.com</a></li>
+        <li><a href="https://www.linkedin.com/in/christina-adams-developer/">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script src="prism/prism.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>

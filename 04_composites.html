@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Composites - WAI-ARIA Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel='stylesheet' href='style.css' />
+    
+  </head>
+  <body>
+    <main>
+      <h1>Composites - WAI-ARIA Workshop</h1>
+
+      <section aria-labelledby="descSec1" class="height-xl">
+        <h2 id="descSec1">Activity 1</h2>
+        <label for="act1">Add the required roles to complete this tablist composite widget.</label>
+        <ol>
+          <li>Include the required child roles</li>
+          <li>Label the tab list using aria-labelledby</li>
+          <li>Indicate that the first tab is "selected" using aria-selected</li>
+          <li>Indicate which tabpanel each tab controls using aria-controlls</li>
+          <li>Supply an accessible name for each tabpanel by referencing the button that controls it using aria-labelledby</li>
+          <li>Reference the ARIA Authoring Practices Guide if you get stuck: https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html</li>
+        </ol>
+        <div class="stage">
+<textarea id="act1" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<h2 id="tablistLabel">A grouped of tabs</h2>
+<div>
+  <button id="tab1">Tab 1</button>
+  <button id="tab2">Tab 2</button>
+  <button id="tab3">Tab 3</button>
+</div>
+<div id="panel1">
+  <p>Tab 1 Content that is shown when tab 1 is activated.</p>
+</div>
+<div id="panel2">
+  <p>Tab 2 Content that is shown when tab 2 is activated.</p>
+</div>
+<div id="panel3">
+  <p>Tab 3 Content that is shown when tab 3 is activated.</p>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;h2 id="tablistLabel">A groupd of tabs&lt;/h2>
+&lt;div role="tablist" aria-labelledby="tablistLabel">
+  &lt;button id="tab1" role="tab" aria-controls="panel1" aria-selected="true">Tab 1&lt;/button>
+  &lt;button id="tab2" role="tab" aria-controls="panel2">Tab 2&lt;/button>
+  &lt;button id="tab3" role="tab" aria-controls="panel3">Tab 3&lt;/button>
+&lt;/div>
+&lt;div id="panel1" role="tabpanel" aria-labelledby="tab1">
+  &lt;p>Tab 1 Content that is shown when tab 1 is activated.&lt;/p>
+&lt;/div>
+&lt;div id="panel2" role="tabpanel" aria-labelledby="tab2">
+  &lt;p>Tab 2 Content that is shown when tab 2 is activated.&lt;/p>
+&lt;/div>
+&lt;div id="panel3" role="tabpanel" aria-labelledby="tab3">
+  &lt;p>Tab 3 Content that is shown when tab 3 is activated.&lt;/p>
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+
+      <section aria-labelledby="descSec2" class="height-md">
+        <h2 id="descSec2">Activity 2</h2>
+        <label for="act2">This is a custom ARIA combobox/listbox pattern that is missing its roles.</label>
+        <ol>
+          <li>Add the appropriate roles of combobox and listbox to the correct elements</li>
+          <li>Add the correct role to the options in the listbox</li>
+          <li>Indicate that the combobox has a popup using aria-haspopup</li>
+          <li>Use aria-expanded on the combobox to communicate that the list box is not visible</li>
+          <li>Use aria-controls on the combobox to reference the listbox</li>
+          <li>Associate the same label for the combobox and listbox using aria-labelledby</li>
+          <li>Indicate Option 1 is selected using aria-selected on the option and aria-activedescendant on the combobox</li>
+          <li>Reference the ARIA Authoring Practices Guide if you get stuck: https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html</li> 
+        </ol>
+        <div class="stage">
+<textarea id="act2" class="editing"  spellcheck="false" oninput="update(this.value, this); sync_scroll(this);" onscroll="sync_scroll(this);">
+<span id="comboLabel">Favorite color</span>
+<div>Choose an option: </div>
+<div id="optionList">
+  <span id="op1">Option 1</span>
+  <span id="op2">Option 2</span>
+  <span id="op3">Option 3</span>
+</div>
+</textarea>
+
+<pre class="highlighting"><code class="language-html highlighting-content"></code></pre>
+        </div>
+
+        <details>
+          <summary>Show the answer</summary>
+<pre><code class="language-html">&lt;span id="comboLabel">Favorite color&lt;/span>
+&lt;div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="optionList" aria-labelledby="comboLabel" aria-activedescendant="op1">Choose an option: &lt;/div>
+&lt;div id="optionList" role="listbox" aria-labelledby="comboLabel">
+  &lt;span id="op1" role="option" aria-selected="true">Option 1&lt;/span>
+  &lt;span id="op2" role="option">Option 2&lt;/span>
+  &lt;span id="op3" role="option">Option 3&lt;/span>
+&lt;/div>
+</code></pre>          
+        </details>
+      </section>
+    </main>
+    <footer>
+      <p>Author: Christina Adams</p>
+      <ul>
+        <li><a href="https://github.com/offsetChris">@offsetChris on GitHub</a></li>
+        <li><a href="mailto:cada@siteimprove.com">cada@siteimprove.com</a></li>
+        <li><a href="https://www.linkedin.com/in/christina-adams-developer/">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script src="prism/prism.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>
